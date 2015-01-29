@@ -44,7 +44,15 @@ public class DictionarySearch {
 	 * @return a SearchResult (index of item found or -1 if not found, number of iterations in search loop)
 	 */
 	public static SearchResult sequentialSearch(String wordToFind) {
-      //TODO
+       int iterations=1;
+       SearchResult j;
+       for (int I = 0; I < words.size(); I++) {
+         iterations++;
+         if (words.get(I).compareTo(wordToFind)==0) {
+         return j=new SearchResult(I, iterations);;
+      }
+    }
+    return j=new SearchResult(0, iterations);;
 	}
 
 	/**
@@ -54,7 +62,27 @@ public class DictionarySearch {
 	 * @return a SearchResult (index of item found or -1 if not found, number of iterations in search loop)
 	 */
 	public static SearchResult binarySearch(String wordToFind) {
-      //TODO
+          int min=0;
+    int max=words.size()-1;
+    int mid;
+    SearchResult k;
+    while(min<=max)
+    {
+      mid=(max+min)/2;
+      if(words(mid)==wordToFind)
+      {
+        return k=new SearchResult(1,0);
+      }
+      else if(words(mid)<wordToFind)
+      {
+        min=mid+1;
+      }
+      else
+      {
+        max=mid-1;
+      }
+    }
+    return k=new SearchResult(-1,0);
 	}
 
 	/**
